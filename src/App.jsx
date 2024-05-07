@@ -1,8 +1,13 @@
 import React from "react";
+import Slider from "./components/Slider.jsx";
 
 class App extends React.Component {
   render() {
-    return <></>;
+    return (
+      <>
+        <Slider />
+      </>
+    );
   }
 }
 export default App;
