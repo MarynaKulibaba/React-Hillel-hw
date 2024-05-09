@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
+import styles from "./slider.module.css";
 
 class Slider extends React.Component {
   constructor(props) {
@@ -8,6 +10,13 @@ class Slider extends React.Component {
       currentSlideIndex: 0,
     };
   }
+
+  getSlideClass = (index) => {
+    const { currentSlideIndex } = this.state;
+    return cn("carousel-item", {
+      active: index === currentSlideIndex,
+    });
+  };
 
   prevSlide = () => {
     this.setState((prevState) => ({
@@ -26,20 +35,20 @@ class Slider extends React.Component {
     }));
   };
   render() {
-    const { images } = this.props; // Отримання зображень з пропсів
-    const { currentSlideIndex } = this.state;
+    const { images } = this.props;
     return (
       <div
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        <div className="carousel-inner">
+        <div className="carousel-inner ">
           {images.map((img, index) => (
-            <div key={index} className="slide">
+            <div key={index} className={this.getSlideClass(index)}>
               <img
-                src={images[currentSlideIndex]}
-                alt={`Slide ${currentSlideIndex}`}
+                src={img}
+                className={styles.carouselInnerImg}
+                alt={`Slide ${index}`}
               />
             </div>
           ))}
