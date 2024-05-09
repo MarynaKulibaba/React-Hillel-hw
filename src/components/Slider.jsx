@@ -83,4 +83,11 @@ class Slider extends React.Component {
   }
 }
 
+Slider.defaultProps = {
+  images: [
+    "https://via.placeholder.com/800x400?text=First",
+    "https://via.placeholder.com/800x400?text=Second",
+    "https://via.placeholder.com/800x400?text=Third",
+  ],
+};
 export default Slider;
