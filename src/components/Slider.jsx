@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cn from "classnames";
-import styles from "./slider.module.css";
 
 class Slider extends React.Component {
   constructor(props) {
@@ -36,20 +34,19 @@ class Slider extends React.Component {
   };
   render() {
     const { images } = this.props;
+    const carouselInner = {
+      height: "100vh",
+    };
     return (
       <div
         id="carouselExampleControls"
         className="carousel slide"
         data-bs-ride="carousel"
       >
-        <div className="carousel-inner ">
+        <div className="carousel-inner" style={carouselInner}>
           {images.map((img, index) => (
             <div key={index} className={this.getSlideClass(index)}>
-              <img
-                src={img}
-                className={styles.carouselInnerImg}
-                alt={`Slide ${index}`}
-              />
+              <img src={img} alt={`Slide ${index}`} />
             </div>
           ))}
         </div>
@@ -85,9 +82,5 @@ class Slider extends React.Component {
     );
   }
 }
-
-Slider.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default Slider;
