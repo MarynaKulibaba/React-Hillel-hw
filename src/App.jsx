@@ -1,8 +1,13 @@
-import React from "react";
+import MyForm from "./components/myForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container } from "react-bootstrap";
 
-class App extends React.Component {
-  render() {
-    return <></>;
-  }
+function App() {
+  return (
+    <Container>
+      <MyForm />
+    </Container>
+  );
 }
+
 export default App;
