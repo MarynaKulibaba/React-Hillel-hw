@@ -1,11 +1,20 @@
 import { Form } from "react-bootstrap";
 import { random } from "lodash";
-import placeholder from "lodash/fp/placeholder.js";
+// import placeholder from "lodash/fp/placeholder.js";
+import PropTypes from "prop-types";
 
-const Input = ({ label, name, type, placeholder, value, onChange }) => {
-  const controllId = "form-input" + random(0, 1000);
+const Input = ({
+  label = null,
+  name = "",
+  type = "text",
+  placeholder = "Put your data here",
+  value = "",
+  onChange,
+  ...restProps
+}) => {
+  const controlId = "form-input" + random(0, 1000);
   return (
-    <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Group className="mb-3" controlId={controlId}>
       {label && <Form.Label>{label}</Form.Label>}
       <Form.Control
         name={name}
@@ -14,20 +23,18 @@ const Input = ({ label, name, type, placeholder, value, onChange }) => {
         autoComplete="off"
         value={value}
         onChange={onChange}
+        {...restProps}
       />
     </Form.Group>
   );
 };
 
-Input.defaultProps = {
-  label: null,
-  name: "",
-  type: "text",
-  placeholder: "Put your data here",
-  value: "",
-  onChange: (e) => {
-    console.log(e.target.value);
-  },
+Input.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  type: PropTypes.oneOf(["text", "number", "password", "email"]),
 };
-
 export default Input;
