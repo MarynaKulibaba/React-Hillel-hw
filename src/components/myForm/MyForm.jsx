@@ -17,9 +17,9 @@ class MyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formData: {
-        ...formInitialValue,
-      },
+      formData: props.formData
+        ? { ...props.formData }
+        : { ...formInitialValue },
     };
   }
 
@@ -110,5 +110,6 @@ class MyForm extends Component {
 }
 MyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  formData: PropTypes.object,
 };
 export default MyForm;
