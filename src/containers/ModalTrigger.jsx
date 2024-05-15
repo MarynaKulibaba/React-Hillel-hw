@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Modal from "./Modal.jsx";
+import Modal from "../сomponents/Modal";
 
 class ModalTrigger extends Component {
   constructor(props) {

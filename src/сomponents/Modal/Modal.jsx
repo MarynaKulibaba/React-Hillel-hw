@@ -1,11 +1,11 @@
-import React from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header.jsx";
 import Body from "./Body.jsx";
 import Footer from "./Footer.jsx";
 import cn from "classnames";
 
-class Modal extends React.Component {
+class Modal extends Component {
   static Header = Header;
   static Body = Body;
   static Footer = Footer;

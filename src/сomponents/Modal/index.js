@@ -1,2 +1,2 @@
-import ModalTrigger from "./ModalTrigger.jsx";
-export default ModalTrigger;
+import Modal from "./Modal.jsx";
+export default Modal;
