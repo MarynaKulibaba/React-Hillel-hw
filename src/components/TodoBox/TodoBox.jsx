@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { uniqueId } from "lodash";
 import TodoItem from "../TodoItem";
+import { Button, Form, FormControl } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 class TodoBox extends Component {
   constructor(props) {
@@ -35,33 +37,31 @@ class TodoBox extends Component {
 
   render() {
     return (
-      <div>
-        <div className="mb-3">
-          <form className="d-flex" onSubmit={this.handleAddTask}>
-            <div className="me-3">
-              <input
-                type="text"
-                value={this.state.inputValue}
-                onChange={this.handleInputChange}
-                required
-                className="form-control"
-                placeholder="I am going..."
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Add
-            </button>
-          </form>
-        </div>
-        <div>
-          {this.state.tasks.map((task) => (
-            <TodoItem
-              key={task.id}
-              task={task}
-              onRemove={() => this.handleRemoveTask(task.id)}
+      <div className="mt-3">
+        <Container className="mb-3">
+          <Form className="d-flex mb-3" onSubmit={this.handleAddTask}>
+            <FormControl
+              type="text"
+              value={this.state.inputValue}
+              onChange={this.handleInputChange}
+              placeholder="I am going..."
+              className="me-2"
+              required
             />
-          ))}
-        </div>
+            <Button variant="primary" type="submit">
+              Add
+            </Button>
+          </Form>
+          <div>
+            {this.state.tasks.map((task) => (
+              <TodoItem
+                key={task.id}
+                task={task}
+                onRemove={() => this.handleRemoveTask(task.id)}
+              />
+            ))}
+          </div>
+        </Container>
       </div>
     );
   }

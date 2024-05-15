@@ -1,26 +1,25 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
+import { Button } from "react-bootstrap";
 
 class TodoItem extends Component {
   render() {
     const { task, onRemove } = this.props;
     return (
-      <div>
-        <div className="row mb-3">
-          <div className="col-auto">
-            <button
-              type="button"
-              className="btn btn-primary btn-sm"
-              onClick={onRemove}
-            >
-              -
-            </button>
-          </div>
-          <div className="col">{task.text}</div>
+      <div className="row mb-3">
+        <div className="col-auto">
+          <Button variant="danger" size="sm" onClick={onRemove}>
+            -
+          </Button>
         </div>
-        <hr />
+        <div className="col">{task.text}</div>
       </div>
     );
   }
 }
-
+TodoItem.propTypes = {
+  task: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  onRemove: PropTypes.func.isRequired,
+};
 export default TodoItem;
