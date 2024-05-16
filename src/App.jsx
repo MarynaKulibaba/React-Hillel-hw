@@ -1,8 +1,12 @@
-import React from "react";
+import ActionLogger from "./сomponents/ActionLogger";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends React.Component {
-  render() {
-    return <></>;
-  }
+function App() {
+  return (
+    <>
+      <ActionLogger />
+    </>
+  );
 }
+
 export default App;
