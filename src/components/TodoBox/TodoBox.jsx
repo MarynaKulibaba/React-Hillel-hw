@@ -16,16 +16,16 @@ class TodoBox extends Component {
   handleAddTask = (event) => {
     event.preventDefault();
     const newTask = {
-      id: uniqueId(),
+      id: uniqueId("task_"),
       text: this.state.inputValue,
     };
     this.setState((prevState) => ({
       tasks: [newTask, ...prevState.tasks],
-      inputValue: "", // Очищення поля вводу
+      inputValue: "",
     }));
   };
 
-  handleRemoveTask = (id) => {
+  handleRemoveTask = (id) => () => {
     this.setState((prevState) => ({
       tasks: prevState.tasks.filter((task) => task.id !== id),
     }));
@@ -56,8 +56,9 @@ class TodoBox extends Component {
             {this.state.tasks.map((task) => (
               <TodoItem
                 key={task.id}
-                task={task}
-                onRemove={() => this.handleRemoveTask(task.id)}
+                task={task.text}
+                id={task.id}
+                onRemove={this.handleRemoveTask(task.id)}
               />
             ))}
           </div>

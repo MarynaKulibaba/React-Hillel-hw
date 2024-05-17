@@ -12,14 +12,15 @@ class TodoItem extends Component {
             -
           </Button>
         </div>
-        <div className="col">{task.text}</div>
+        <div className="col">{task}</div>
       </div>
     );
   }
 }
+
 TodoItem.propTypes = {
   task: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
   onRemove: PropTypes.func.isRequired,
 };
+
 export default TodoItem;
