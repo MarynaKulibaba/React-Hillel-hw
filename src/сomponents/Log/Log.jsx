@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 
@@ -23,7 +23,7 @@ class Log extends Component {
 
 Log.propTypes = {
   data: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired, // Використання строки для id, оскільки uniqueId генерує рядкові ідентифікатори
+  id: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 
