@@ -35,9 +35,6 @@ class MyForm extends Component {
       previousState[event.target.name] = event.target.value;
     }
 
-    // console.log(previousState);
-    // console.log(event.target);
-
     this.setState({ formData: previousState });
   };
 
@@ -110,6 +107,13 @@ class MyForm extends Component {
 }
 MyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  formData: PropTypes.object,
+  formData: PropTypes.shape({
+    email: PropTypes.string,
+    password: PropTypes.string,
+    address: PropTypes.string,
+    city: PropTypes.string,
+    country: PropTypes.string,
+    rules: PropTypes.oneOf(["on", "off"]),
+  }),
 };
 export default MyForm;
