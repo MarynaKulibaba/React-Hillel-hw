@@ -1,5 +1,5 @@
-import { Component } from "react";
-import { Container, ListGroup } from "react-bootstrap";
+import React, { Component } from "react";
+import { Container, ListGroup, Alert } from "react-bootstrap";
 import AlbumItem from "./AlbumItem";
 import AlbumPhotos from "./AlbumPhotos";
 
@@ -9,16 +9,19 @@ class AlbumCatalog extends Component {
     this.state = {
       albums: [],
       selectedAlbumId: null,
+      error: null,
     };
   }
 
   async componentDidMount() {
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/albums");
+      if (!res.ok) throw new Error("Network response was not ok");
       const data = await res.json();
+      console.log(data);
       this.setState({ albums: data });
     } catch (error) {
-      new Error();
+      this.setState({ error: "Failed to fetch albums" });
     }
   }
 
@@ -27,17 +30,19 @@ class AlbumCatalog extends Component {
   };
 
   renderAlbums() {
-    const { albums } = this.state;
+    const { albums, error } = this.state;
 
     return (
       <Container>
         <h1 className="my-4">Albums</h1>
+        {error && <Alert variant="danger">{error}</Alert>}
         <ListGroup>
-          {albums.map((album) => (
+          {albums.map((album, index) => (
             <AlbumItem
               key={album.id}
               album={album}
               onSelect={this.selectAlbum}
+              index={index}
             />
           ))}
         </ListGroup>

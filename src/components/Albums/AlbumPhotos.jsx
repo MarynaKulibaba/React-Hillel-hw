@@ -7,6 +7,7 @@ class AlbumPhotos extends Component {
     super(props);
     this.state = {
       photos: [],
+      error: null,
     };
   }
 
@@ -19,13 +20,17 @@ class AlbumPhotos extends Component {
       const data = await res.json();
       this.setState({ photos: data });
     } catch (error) {
-      new Error();
+      this.setState({ error: "Failed to fetch photos" });
     }
   }
 
   render() {
-    const { photos } = this.state;
+    const { photos, error } = this.state;
     const { onBack } = this.props;
+
+    if (error) {
+      return <p>{error}</p>;
+    }
 
     return (
       <Container>

@@ -18,6 +18,8 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
-    'prettier/prettier': 'error',  // Активуємо правила Prettier як помилки ESLint
+    'prettier/prettier': ['error', {
+      endOfLine: 'auto'  // Встановлюється auto для автоматичного визначення стилю кінця рядка
+    }]  // Активуємо правила Prettier як помилки ESLint
   },
 }
