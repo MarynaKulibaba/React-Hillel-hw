@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Container, ListGroup, Alert } from "react-bootstrap";
 import AlbumItem from "./AlbumItem";
 import AlbumPhotos from "./AlbumPhotos";
