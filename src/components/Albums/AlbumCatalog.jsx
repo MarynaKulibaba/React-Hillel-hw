@@ -14,15 +14,21 @@ class AlbumCatalog extends Component {
   }
 
   async componentDidMount() {
+    const state = {
+      albums: [],
+      error: "",
+      selectedAlbumId: null,
+    };
     try {
       const res = await fetch("https://jsonplaceholder.typicode.com/albums");
       if (!res.ok) throw new Error("Network response was not ok");
       const data = await res.json();
       console.log(data);
-      this.setState({ albums: data });
+      state.albums = data;
     } catch (error) {
-      this.setState({ error: "Failed to fetch albums" });
+      state.error = "Failed to fetch albums";
     }
+    this.setState(state);
   }
 
   selectAlbum = (albumId) => {
