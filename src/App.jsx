@@ -1,8 +1,9 @@
 import React from "react";
+import TodoBox from "./components/TodoBox";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends React.Component {
-  render() {
-    return <></>;
-  }
-}
+const App = () => {
+  return <TodoBox />;
+};
+
 export default App;
