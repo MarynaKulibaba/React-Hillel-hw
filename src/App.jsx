@@ -1,8 +1,13 @@
-import React from "react";
+import GoodsList from "./containers/GoodsList";
+import CartList from "./containers/CartList";
 
-class App extends React.Component {
-  render() {
-    return <></>;
-  }
+function App() {
+  return (
+    <div>
+      <GoodsList />
+      <CartList />
+    </div>
+  );
 }
+
 export default App;

@@ -1,0 +1,14 @@
+[
+  {
+    "articul": "123a",
+    "title": "Banana",
+    "cost": 30,
+    "image": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Banana-64.png"
+  },
+  {
+    "articul": "456b",
+    "title": "Orange",
+    "cost": 50,
+    "image": "https://cdn0.iconfinder.com/data/icons/fruity-3/512/Orange-64.png"
+  }
+]
