@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Goods(props) {
   return (
     <div className="goods-block">
@@ -10,5 +12,12 @@ function Goods(props) {
     </div>
   );
 }
+
+Goods.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  cost: PropTypes.number.isRequired,
+  articul: PropTypes.string.isRequired,
+};
 
 export default Goods;
