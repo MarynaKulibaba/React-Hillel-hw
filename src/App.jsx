@@ -1,8 +1,5 @@
-import React from "react";
+import RouterMapping from "./router/RouterMapping";
 
-class App extends React.Component {
-  render() {
-    return <></>;
-  }
+export default function App() {
+  return <RouterMapping />;
 }
-export default App;
